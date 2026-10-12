@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – Web Developer</title>
+<meta name="description" content="Web developer building fast, clean websites with HTML, CSS, JavaScript, Tailwind CSS and WordPress.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{bg:'var(--bg)',fg:'var(--fg)',mut:'var(--mut)',card:'var(--card)',line:'var(--line)'},
+fontFamily:{sans:['Geist','Inter','ui-sans-serif','system-ui','sans-serif'],mono:['Geist Mono','ui-monospace','SFMono-Regular','monospace']}}}}
+</script>
+<style>
+:root{--bg:#fff;--fg:#0a0a0a;--mut:#666;--card:#fafafa;--line:#eaeaea;--grid:rgba(0,0,0,.05);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--fg:#ededed;--mut:#a1a1a1;--card:#0a0a0a;--line:#262626;--grid:rgba(255,255,255,.06)}}
+:root[data-theme="dark"]{--bg:#000;--fg:#ededed;--mut:#a1a1a1;--card:#0a0a0a;--line:#262626;--grid:rgba(255,255,255,.06)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+.gridbg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000 30%,transparent 80%)}
+.glow{background:radial-gradient(circle at 30% 30%,rgba(0,112,243,.35),transparent 55%),radial-gradient(circle at 70% 40%,rgba(255,0,128,.25),transparent 55%),radial-gradient(circle at 50% 80%,rgba(121,40,202,.3),transparent 55%);filter:blur(50px)}
+.gt{background:linear-gradient(90deg,#0070f3,#7928ca 50%,#ff0080);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--fg);transform:translateY(-2px)}
+.pill{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--mut)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;padding:10px 18px;font-weight:500;font-size:14px;transition:opacity .2s,background .2s}
+.btn-p{background:var(--fg);color:var(--bg)}.btn-p:hover{opacity:.85}
+.btn-s{border:1px solid var(--line);background:var(--bg)}.btn-s:hover{background:var(--card);border-color:var(--mut)}
+a:focus-visible,button:focus-visible{outline:2px solid #0070f3;outline-offset:3px;border-radius:6px}
+.fade{animation:up .7s both}.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}.card:hover{transform:none}}
+.mock{height:150px;border-radius:10px 10px 0 0;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.mock i{position:absolute;display:block;border-radius:6px;background:rgba(255,255,255,.75)}
+</style>
+</head>
+<body class="font-sans text-fg bg-bg min-h-screen">
+
+<header class="sticky top-0 z-50 border-b border-line backdrop-blur-md" style="background:color-mix(in srgb,var(--bg) 80%,transparent)">
+  <div class="mx-auto max-w-5xl px-5 h-14 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 font-semibold tracking-tight">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 23 21H1z"/></svg>Your Name
+    </a>
+    <nav class="hidden sm:flex items-center gap-6 text-sm text-mut">
+      <a class="hover:text-fg" href="#work">Work</a><a class="hover:text-fg" href="#skills">Skills</a><a class="hover:text-fg" href="#contact">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="tg" aria-label="Toggle theme" class="btn btn-s !px-3 !py-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-p">Hire me</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="relative overflow-hidden">
+  <div class="gridbg absolute inset-0"></div>
+  <div class="glow absolute left-1/2 -translate-x-1/2 top-0 w-[620px] max-w-full h-[320px] opacity-50" aria-hidden="true"></div>
+  <div class="relative mx-auto max-w-5xl px-5 pt-24 pb-24 sm:pt-32 sm:pb-32 text-center">
+    <div class="fade inline-flex items-center gap-2 pill !text-[12px] bg-bg"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Available for new projects</div>
+    <h1 class="fade d1 mt-6 text-4xl sm:text-6xl font-bold tracking-tighter leading-[1.05]">Web developer building<br class="hidden sm:block"> <span class="gt">fast, polished websites.</span></h1>
+    <p class="fade d2 mt-6 mx-auto max-w-xl text-mut text-base sm:text-lg">I design and develop responsive websites with HTML, CSS, JavaScript, Tailwind and WordPress, from landing pages to full business sites.</p>
+    <div class="fade d3 mt-9 flex flex-wrap items-center justify-center gap-3">
+      <a href="#work" class="btn btn-p">View my work <span aria-hidden="true">→</span></a>
+      <a href="#contact" class="btn btn-s">Get in touch</a>
+    </div>
+    <div class="fade d3 mt-14 mx-auto max-w-md grid grid-cols-3 gap-3 text-center">
+      <div class="card py-4"><div class="text-2xl font-bold tracking-tight">4+</div><div class="text-xs text-mut">Live projects</div></div>
+      <div class="card py-4"><div class="text-2xl font-bold tracking-tight">100%</div><div class="text-xs text-mut">Responsive</div></div>
+      <div class="card py-4"><div class="text-2xl font-bold tracking-tight">WP</div><div class="text-xs text-mut">WordPress ready</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="mx-auto max-w-5xl px-5 py-20">
+  <p class="font-mono text-xs text-mut uppercase tracking-widest">Selected work</p>
+  <h2 class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">Projects I've shipped</h2>
+  <p class="mt-3 text-mut max-w-xl">Live websites you can open and explore right now.</p>
+  <div class="mt-10 grid gap-5 sm:grid-cols-2">
+
+    <a href="https://slither-xi-one.vercel.app/" target="_blank" rel="noopener noreferrer" class="card block overflow-hidden group">
+      <div class="mock" style="background:linear-gradient(135deg,#0f9d58,#0b3d2e)"><i style="left:16px;top:16px;width:90px;height:8px"></i><i style="left:16px;top:42px;width:62%;height:18px"></i><i style="left:16px;top:70px;width:44%;height:10px;opacity:.5"></i><i style="right:20px;bottom:18px;width:84px;height:84px;border-radius:50%;opacity:.25"></i></div>
+      <div class="p-5"><div class="flex items-center justify-between"><h3 class="font-semibold text-lg tracking-tight">Slither</h3><span class="text-mut group-hover:text-fg transition">↗</span></div>
+      <p class="font-mono text-xs text-mut mt-1">slither-xi-one.vercel.app</p><p class="mt-3 text-sm text-mut">A bold, interactive web experience built for speed and smooth browsing on any device.</p>
+      <div class="mt-4 flex flex-wrap gap-2"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">Vercel</span></div></div>
+    </a>
+
+    <a href="https://genuine-kheer-fa99cd.netlify.app" target="_blank" rel="noopener noreferrer" class="card block overflow-hidden group">
+      <div class="mock" style="background:linear-gradient(135deg,#f59e0b,#b45309)"><i style="left:16px;top:16px;width:70px;height:8px"></i><i style="left:16px;top:44px;width:56%;height:18px"></i><i style="left:16px;top:72px;width:36px;height:12px;border-radius:99px"></i><i style="right:18px;top:20px;width:80px;height:100px;opacity:.3"></i></div>
+      <div class="p-5"><div class="flex items-center justify-between"><h3 class="font-semibold text-lg tracking-tight">Genuine Kheer</h3><span class="text-mut group-hover:text-fg transition">↗</span></div>
+      <p class="font-mono text-xs text-mut mt-1">genuine-kheer-fa99cd.netlify.app</p><p class="mt-3 text-sm text-mut">A clean, welcoming site with clear sections, strong visuals and a mobile-first layout.</p>
+      <div class="mt-4 flex flex-wrap gap-2"><span class="pill">Responsive</span><span class="pill">Tailwind CSS</span><span class="pill">Netlify</span></div></div>
+    </a>
+
+    <a href="https://grassio.netlify.app" target="_blank" rel="noopener noreferrer" class="card block overflow-hidden group">
+      <div class="mock" style="background:linear-gradient(135deg,#65a30d,#1a2e05)"><i style="left:16px;top:16px;width:80px;height:8px"></i><i style="left:16px;top:42px;width:68%;height:18px"></i><i style="left:16px;top:70px;width:46%;height:10px;opacity:.5"></i><i style="right:16px;bottom:16px;width:110px;height:50px;opacity:.3"></i></div>
+      <div class="p-5"><div class="flex items-center justify-between"><h3 class="font-semibold text-lg tracking-tight">Grassio</h3><span class="text-mut group-hover:text-fg transition">↗</span></div>
+      <p class="font-mono text-xs text-mut mt-1">grassio.netlify.app</p><p class="mt-3 text-sm text-mut">A fresh brand website with a modern layout, smooth sections and fast load times.</p>
+      <div class="mt-4 flex flex-wrap gap-2"><span class="pill">Landing page</span><span class="pill">JavaScript</span><span class="pill">Netlify</span></div></div>
+    </a>
+
+    <a href="https://financial-ninja-website-creation.vercel.app/#journey" target="_blank" rel="noopener noreferrer" class="card block overflow-hidden group">
+      <div class="mock" style="background:linear-gradient(135deg,#2563eb,#1e1b4b)"><i style="left:16px;top:16px;width:90px;height:8px"></i><i style="left:16px;top:42px;width:60%;height:18px"></i><i style="left:16px;top:84px;width:20px;height:36px;opacity:.5"></i><i style="left:44px;top:70px;width:20px;height:50px;opacity:.6"></i><i style="left:72px;top:56px;width:20px;height:64px"></i></div>
+      <div class="p-5"><div class="flex items-center justify-between"><h3 class="font-semibold text-lg tracking-tight">Financial Ninja</h3><span class="text-mut group-hover:text-fg transition">↗</span></div>
+      <p class="font-mono text-xs text-mut mt-1">financial-ninja-website-creation.vercel.app</p><p class="mt-3 text-sm text-mut">A finance-focused website with a guided "journey" section that walks visitors step by step.</p>
+      <div class="mt-4 flex flex-wrap gap-2"><span class="pill">Multi-section</span><span class="pill">UI design</span><span class="pill">Vercel</span></div></div>
+    </a>
+  </div>
+</section>
+
+<section id="skills" class="border-y border-line" style="background:var(--card)">
+  <div class="mx-auto max-w-5xl px-5 py-20">
+    <p class="font-mono text-xs text-mut uppercase tracking-widest">Skills</p>
+    <h2 class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">What I work with</h2>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="card p-5 sm:col-span-2" style="border-color:#0070f3">
+        <div class="flex items-center gap-2"><span class="grid place-items-center w-8 h-8 rounded-lg bg-[#21759b] text-white font-bold text-sm">W</span><h3 class="font-semibold">WordPress</h3><span class="pill ml-auto">Featured</span></div>
+        <p class="mt-3 text-sm text-mut">Custom themes, page builders, plugin setup, WooCommerce stores, speed and SEO tuning, and easy-to-manage sites that clients can update themselves.</p>
+      </div>
+      <div class="card p-5"><h3 class="font-semibold">HTML &amp; CSS</h3><p class="mt-2 text-sm text-mut">Semantic, accessible markup and modern layouts with Flexbox and Grid.</p></div>
+      <div class="card p-5"><h3 class="font-semibold">JavaScript</h3><p class="mt-2 text-sm text-mut">Interactive UI, form handling, animations and API data.</p></div>
+      <div class="card p-5"><h3 class="font-semibold">Tailwind CSS</h3><p class="mt-2 text-sm text-mut">Fast, consistent, design-system-friendly styling.</p></div>
+      <div class="card p-5"><h3 class="font-semibold">Responsive Design</h3><p class="mt-2 text-sm text-mut">Mobile-first sites that look right on every screen.</p></div>
+      <div class="card p-5"><h3 class="font-semibold">Git &amp; GitHub</h3><p class="mt-2 text-sm text-mut">Version control and clean collaboration workflows.</p></div>
+      <div class="card p-5"><h3 class="font-semibold">Vercel &amp; Netlify</h3><p class="mt-2 text-sm text-mut">Quick deployments, custom domains and HTTPS.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="mx-auto max-w-5xl px-5 py-20">
+  <p class="font-mono text-xs text-mut uppercase tracking-widest">Process</p>
+  <h2 class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">How we'll work together</h2>
+  <div class="mt-10 grid gap-4 sm:grid-cols-3">
+    <div class="card p-5"><span class="font-mono text-xs text-mut">01</span><h3 class="mt-2 font-semibold">Discover</h3><p class="mt-2 text-sm text-mut">We talk goals, audience and what the site needs to do.</p></div>
+    <div class="card p-5"><span class="font-mono text-xs text-mut">02</span><h3 class="mt-2 font-semibold">Design &amp; build</h3><p class="mt-2 text-sm text-mut">I build a clean, fast site and share progress along the way.</p></div>
+    <div class="card p-5"><span class="font-mono text-xs text-mut">03</span><h3 class="mt-2 font-semibold">Launch &amp; support</h3><p class="mt-2 text-sm text-mut">We go live, then I help with updates and improvements.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="mx-auto max-w-5xl px-5 pb-24">
+  <div class="card relative overflow-hidden px-6 py-14 text-center hover:!transform-none">
+    <div class="glow absolute inset-0 opacity-25" aria-hidden="true"></div>
+    <div class="relative">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Let's build your website</h2>
+      <p class="mt-3 text-mut max-w-md mx-auto">Have a project in mind, or need a WordPress site? Send me a message and I'll reply quickly.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="mailto:hello@yourname.com" class="btn btn-p">Email me</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-s">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-line">
+  <div class="mx-auto max-w-5xl px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-mut">
+    <span>© <span id="yr">2026</span> Your Name. All rights reserved.</span>
+    <span class="font-mono text-xs">Built with Tailwind CSS</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+document.getElementById("tg").onclick=function(){var r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"};
+</script>
+</body>
+</html>
